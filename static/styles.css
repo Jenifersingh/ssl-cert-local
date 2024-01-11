@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap");
+
+html {
+  font-family: "Balsamiq Sans", sans-serif;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+  display: grid;
+  grid-template-rows: fit-content auto;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  height: 800px;
+  width: 800px;
+  border: 1px solid rgb(248, 124, 0);
+  display: flex;
+  flex-direction: column;
+  background-color: antiquewhite;
+}
+
+.row {
+  display: flex;
+  border: 1px solid rgb(248, 124, 0);
+  height: 100%;
+}
+
+.row > div {
+  display: flex;
+  border: 1px solid rgb(248, 124, 0);
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 0;
+  max-width: 158px;
+}
+
+.editor {
+  color: black;
+  font-weight: 900;
+  font-size: 20px;
+  height: fit-content;
+  outline: none;
+  text-align: center;
+  text-wrap: wrap;
+  max-width: 100%;
+  padding: 4px;
+}
+
+[contenteditable="true"]:empty:before {
+  content: attr(placeholder);
+  pointer-events: none;
+  display: block; /* For Firefox */
+  color: rgb(155, 154, 154);
+}
+
+.playground {
+  height: 100%;
+}
+
+.heading {
+  text-align: center;
+}

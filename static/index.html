@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Resolution Bingo</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-heading">
+        <h1 class="heading">Resolution Bingo</h1>
+      </div>
+      <div class="playground">
+        <div class="box" id="box">
+          <div class="row">
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+            <div>
+              <div
+                contenteditable="true"
+                class="editor"
+                placeholder="Write here ..."
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let localStorageKey = "BINGO";
+
+      let items = document.querySelectorAll(".row > div > div");
+
+      let dataObj = JSON.parse(localStorage.getItem(localStorageKey)) || {};
+
+      items.forEach((item, index) => {
+        let currentRow = Math.floor(index / 5);
+        let currentItem = Math.floor(index % 5);
+        let key = `row ${currentRow} column ${currentItem}`;
+        item.innerText = dataObj[key] || "";
+        item.addEventListener("input", (e) => {
+          dataObj[key] = e.target.innerText;
+          console.log(dataObj);
+          localStorage.setItem(localStorageKey, JSON.stringify(dataObj));
+        });
+      });
+    </script>
+  </body>
+</html>
